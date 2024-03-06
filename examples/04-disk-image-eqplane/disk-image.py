@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import sys
+import sys, os
 assert sys.version_info >= (3,0), "please, use Python version 3"
 
 import time
@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # import SIM5 library
-sys.path.append('../../..')
+sys.path.append(os.path.abspath(os.path.join(__file__, '../../../..')))
 import sim5
 
 # define black hole/system parameters
