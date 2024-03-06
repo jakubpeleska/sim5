@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import sys, os
-assert sys.version_info >= (3,0), "please, use Python version 3"
 
 import time
 from math import *
@@ -22,7 +21,6 @@ bh_rms  = sim5.r_ms(bh_spin)
 if (len(sys.argv) > 2):
     bh_spin = float(sys.argv[1])
     bh_incl = float(sys.argv[2])
-#end if
 
 
 # define disk parameters
@@ -46,8 +44,7 @@ image_g = np.zeros((image_dim_y, image_dim_x))
 # (determines how big portion of the disk shall the image cover)
 rmax = sim5.r_ms(bh_spin) + 15.0
 
-sys.stderr.write("Computing ... ")
-sys.stderr.flush()
+print("Computing ... ", end='', flush=True)
 
 time1 = time.time()
 
@@ -89,7 +86,6 @@ for iy in range(image_dim_y):
             image_g[iy, ix] = g
             # break the calculation and continue with next pixel
             continue
-        #end if
 
         # the same thing for photons that make one orbit around the black hole
         # and may bring light from the bottom side of the disk
@@ -102,13 +98,10 @@ for iy in range(image_dim_y):
             image_f[iy, ix] = f*pow(g,4.)
             image_g[iy, ix] = g
             continue
-        #end if
 
-    #end for(ix)
-#end for(iy)
 
 time2 = time.time()
-sys.stderr.write("done\n")
+print("done\n",  end='')
 
 print("Profiling:")
 print("    photons:", image_dim_x*image_dim_y)

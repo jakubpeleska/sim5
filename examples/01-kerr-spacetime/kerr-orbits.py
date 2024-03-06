@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import sys, os
-assert sys.version_info >= (3,0), "please, use Python version 3"
 
 from math import *
 import numpy as np
